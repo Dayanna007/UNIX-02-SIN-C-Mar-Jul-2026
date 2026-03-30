@@ -1,0 +1,14 @@
+#Check for the latest versions of available software.
+sudo apt update
+#Update everything I already have installed.
+sudo apt upgrade
+#Install a tool to manage hard drives and partitions.
+sudo apt install parted
+#Show me all my disks and partitions, then show detailed info about them, with separators to make it easier to read.
+sudo parted -l && echo -e "\n---\n" && lsblk -f && echo -e "\n---\n"
+#It checks how your computer was booted and tells you if it’s UEFI or BIOS.
+[ -d /sys/firmware/efi ] && echo "UEFI" || echo "BIOS"
+#
+echo "mi archivo" >test.txt
+#
+stat test.txt
