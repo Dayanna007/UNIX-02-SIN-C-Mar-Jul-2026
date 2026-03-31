@@ -11,4 +11,5 @@ sudo parted -l && echo -e "\n---\n" && lsblk -f && echo -e "\n---\n"
 #
 echo "mi archivo" >test.txt
 #
-stat test.txt
+stat test.
+n
