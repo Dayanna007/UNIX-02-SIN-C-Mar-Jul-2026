@@ -210,8 +210,9 @@ git commit -m "Fix problema 7: llave GPG generada y telemetria.log cifrado"
 **8b.** **Detecta y corrige** la firma corrompida de `script.sh`. El archivo `orion/script.sh.sig` existe pero su firma fue alterada intencionalmente. Verifica el fallo con:
 
 ```bash
-gpg --verify orion/script.sh.sig orion/script.sh
-# Debe mostrar: BAD signature
+git add script.sh script.sh.sig config.conf config.conf.asc
+git commit -m "Problema 8: firma clearsign y corrección de firma GPG en script.sh"
+git push
 ```
 
 Luego **re-firma** `script.sh` usando `--detach-sign`, **sobreescribiendo** el `.sig` corrupto. La nueva firma debe quedar como `orion/script.sh.sig`.
