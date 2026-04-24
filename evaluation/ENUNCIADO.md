@@ -52,7 +52,11 @@ Dentro de `orion/` hay exactamente **2 errores** relacionados con directorios:
 | 1a. `apuntes` existe y `notas` no | **+0.75** | -0.25 | 0 |
 | 1b. `respaldos` existe | **+0.75** | — | 0 |
 
+
 ```bash
+mv notas apuntes
+mkdir respaldos
+
 git add .
 git commit -m "Fix problema 1: estructura de directorios corregida"
 ```
@@ -72,6 +76,9 @@ Dentro de `orion/` hay exactamente **2 errores** de nombre o ubicación de archi
 | 2b. `config.conf` existe, `config.tmp` no | **+0.50** | -0.25 | 0 |
 
 ```bash
+mv telemetria.log apuntes/
+mv config.tmp config.conf
+
 git add .
 git commit -m "Fix problema 2: archivos movidos y renombrados"
 ```
@@ -96,6 +103,9 @@ Aplica el permiso correcto usando **notación numérica (octal)**.
 
 ```bash
 git add .
+git commit -m "Fix problema 3: permisos 640"
+
+git add .
 git commit -m "Fix problema 3: permisos numericos 640 en telemetria.log"
 ```
 
@@ -116,6 +126,9 @@ Hay **2 fallos** que deben corregirse usando **notación simbólica** (`u+x`, `o
 | 4b. `config.conf` no tiene bit `o+w` | **+0.50** | -0.25 | 0 |
 
 ```bash
+chmod u+x script.sh
+chmod o-w config.conf
+
 git add .
 git commit -m "Fix problema 4: permisos simbolicos corregidos"
 ```
@@ -137,6 +150,8 @@ git commit -m "Fix problema 4: permisos simbolicos corregidos"
 | 5. `script.sh` tiene bit SUID activo | **+1.00** | -0.50 | 0 |
 
 ```bash
+chmod u+s script.sh
+
 git add .
 git commit -m "Fix problema 5: SUID activado en script.sh"
 ```
