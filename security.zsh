@@ -12,3 +12,5 @@ touch ~/lab_chgrp/scripts/deploy.sh
 ls -la ~/lab_chgrp/proyectos/
 #
 ls -la ~/lab_chgrp/reportes/ 
+#
+chgrp desarrolladores   
