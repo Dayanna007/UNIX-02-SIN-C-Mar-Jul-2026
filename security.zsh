@@ -70,5 +70,5 @@ chgrp -R desarrolladores ~/lab_chgrp/scripts/
 #Recursively changes the group ownership of the scripts directory and all its contents to desarrolladores using root privileges.
 ls -laR ~/lab_chgrp/scripts/
 #Recursively lists all files and detailed permissions within the scripts directory and its subdirectories.
-chgrp -Rv diseo ~/lab_chgrp/reportes/.
+chgrp -Rv diseo ~/lab_chgrp/reportes/
 #Recursively changes the group ownership of the reportes directory and its contents to diseo, providing verbose output for each action
