@@ -228,4 +228,6 @@ RUN cat >> /root/.zshrc <<'EOF'
 #----- valida si un comando fue ejecutado correctamente -----
 PROMPT='%F{cyan}[Dayanna-Gaguancela]%f %F{yellow}%1~%f %(?,%F{green}ok,%F{red}bad %?%f) %#'
 
+EOF
+
 CMD ["/usr/bin/zsh"]
