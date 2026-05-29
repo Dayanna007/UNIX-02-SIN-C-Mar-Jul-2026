@@ -88,4 +88,98 @@ ls -l hello.sh
 chmod u+x hello.sh
 #
 ls -l hello.sh
+#
+./hello.sh
+#
+sudo ./hello.sh
+#
+cd ~/Documents
+#
+cat animals.txt
+#
+cat alpha.txt
+#
+head alpha.txt
+#
+tail alpha.txt
+#
+head -n 5 alpha.txt
+#
+tail -n 5 alpha.txt 
+#
+cd ~/Documents
+#
+cp /etc/passwd .
+#
+ls
+#
+cd ~
+#
+dd if=/dev/zero of=/tmp/swapex bs=1M count=50
+#
+cd ~/Documents
+#
+mv people.csv Work
+#
+ls Work
+#
+mv numbers.txt letters.txt alpha.txt School
+#
+ls School
+#
+ls
+#
+mv animals.txt zoo.txt 
+#
+ls
+#
+rm linux.txt
+#
+ls linux.txt
+#
+rm Work
+#
+rm -r Work
+#
+ls Work
+#
+cp /etc/passwd .
+#
+grep sysadmin passwd
+#
+grep 'root' passwd
+#
+grep '^root' /etc/passwd
+#
+cat alpha-first.txt
+#
+grep 'r$' alpha-first.txt
+#
+cat red.txt
+#
+grep 'r..f' red.txt
+#
+grep 'r..d' red.txt
+#
+grep '....' red.txt
+#
+grep 'r..t' /etc/passwd
+#
+cat profile.txt
+#
+grep '[0-9]' profile.txt
+#
+grep '[^0-9]' profile.txt
+#
+grep '[.]' profile.txt
+#
+cat red.txt
+#
+grep 're*d' red.txt
+#
+grep 'r[oe]*d' red.txt
+#
+grep 'z*' red.txt
+#
+
 
