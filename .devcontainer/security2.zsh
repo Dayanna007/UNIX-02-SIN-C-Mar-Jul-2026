@@ -61,3 +61,18 @@ mkdir -p ~/proyecto_dev/src
 #
 ls -la ~/
 #
+echo $$
+#
+echo "PID del shell actual: $$"
+#
+newgrp desarrolladores
+#
+echo "PID dentro de newgrp: $$"
+#
+groupadd grupo_restringido
+#
+gpasswd grupo_restringido
+#
+newgrp grupo_restringido
+#
+echo "Grupo actual: $(id -gn)"
