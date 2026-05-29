@@ -241,7 +241,7 @@ __set_prompt() {
 }
 PROMPT_COMMAND=__set_prompt
 EOF
-CMD ["/bin/bash"]
+CMD ["/bin/bash"].
 
 
 
