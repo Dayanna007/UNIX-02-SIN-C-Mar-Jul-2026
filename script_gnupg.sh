@@ -85,14 +85,6 @@ ls -l hello.sh
 #
 ./hello.sh
 #
-chmod u+x hello.sh
-#
-ls -l hello.sh
-#
-./hello.sh
-#
-sudo ./hello.sh
-#
 cd ~/Documents
 #
 cat animals.txt
@@ -181,5 +173,18 @@ grep 'r[oe]*d' red.txt
 #
 grep 'z*' red.txt
 #
+grep 'e*' red.txt
+#
+grep 'ee*' red.txt
+#
+grep 'red'
+    The girl in the red drees had red hair and a matching red bow
+    the horse in the red saddle was bred for racing.
+#
+cd ~
+#
+su - 
+#
+
 
 
