@@ -228,6 +228,28 @@ passwd -S sysadmin
 passwd sysadmin
 #
 exit
+#
+cat food.txt
+#
+cat food.txt > newfile1.txt
+#
+cat newfile1.txt 
+#
+echo "Hello" 
+#
+cat newfile1.txt
+#
+echo "I like food." > newfile1.txt
+#
+cat newfile1.txt 
+#
+echo "This food is good." >> newfile1.txt
+#
+cat newfile1.txt
+#
+vi newfile.txt
+#
+
 
 
 
