@@ -185,6 +185,52 @@ cd ~
 #
 su - 
 #
+shutdown now
+#
+date
+#
+shutdown 01:12
+#
+shutdown +1 "Goodbye World!"
+#
+ifconfig 
+#
+ping -c 4 192.168.1.2
+#
+ping -c 4 192.168.1.3  
+#
+exit
+#
+ps
+#
+ps -e
+#
+ps -ef
+#
+sudo apt-get update
+#
+apt-cache search cow
+#
+sudo apt-get install cowsay
+#
+cowsay 'NDG Linux Unhatched'
+#
+sudo apt-get update
+#
+sudo apt-get upgrade
+#
+sudo apt-get purge cowsay
+#
+passwd 
+#
+passwd -S sysadmin
+#
+passwd sysadmin
+#
+exit
+
+
+
 
 
 
