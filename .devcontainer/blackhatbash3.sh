@@ -4,3 +4,4 @@ echo "This book's name is $book"
 root_directory=$(ls -ld /)
 unset book
 $ echo "${book}"
+
