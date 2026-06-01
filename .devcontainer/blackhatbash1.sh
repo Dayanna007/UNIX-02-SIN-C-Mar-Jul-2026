@@ -14,7 +14,7 @@ df --human-readable
 #!/usr/bin/env bash
 #!/bin/bash -x
 /bin/bash -r restricted
-bash -balckhatbash1.sh
+bash -blackhatbash1.sh
 #!/bin/bash 
 echo "Hello World!"
 
