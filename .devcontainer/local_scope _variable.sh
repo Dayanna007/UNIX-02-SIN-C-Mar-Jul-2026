@@ -15,3 +15,4 @@ echo "Variable ${name} will not be printed because it is a local variable."
 #because it is available throughout the script, whereas name is a local variable and cannot be accessed outside the print_name() function. 
 #Another important characteristic of Bash is that functions are invoked by simply writing their name without parentheses; parentheses are only
 #used when defining the function.
+
