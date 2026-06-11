@@ -123,7 +123,7 @@ RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
 #   If something fails the build stops with a clear error.
 # \ at the end of a line means "this command continues on the next line".
 #
-# Some important tools:
+# Some important tools installed:
 #   gawk / sed / grep  — text processing tools covered in BHB Ch.2
 #   shellcheck         — checks bash scripts for errors automatically
 #   nmap               — famous network port scanner (BHB Ch.4)
