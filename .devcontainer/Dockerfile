@@ -237,7 +237,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  # sed finds the line "# es_ES.UTF-8" in the locale.gen file and removes
  # the # symbol to enable that language. Then locale-gen compiles the
  # locale files so the system can display Spanish characters correctly.
- # sed is a stream editor that modifies text in files without opening them.
+ # sed is a stream editor — it modifies text in files without opening them.
  # (BHB Ch.2 covers sed as one of the main text processing tools)
  #
  # sed busca "# es_ES.UTF-8" en /etc/locale.gen y le quita el "#" para
