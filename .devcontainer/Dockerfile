@@ -370,7 +370,7 @@ EOF
 #   CMD executes when the container STARTS (to give you a shell).
 # /bin/bash opens an interactive terminal by default.
 # Codespaces overrides this with its own VS Code terminal, but it is
-# good practice to always define a CMD so the image works with plain Docker too.
+# good practice to always define CMD so the image works with plain Docker too.
 CMD ["/bin/bash"]
 
 
