@@ -248,11 +248,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  # --- Limpieza final: reducir el tamaño de la imagen ---
  
 # MY EXPLANATION OF BLOCK G:
- # After installing, apt leaves cached files we no longer need.
- # We delete them here in the SAME RUN block on purpose — if we used a
- # separate RUN, Docker would save the cache in the previous layer anyway
- # and the image would not actually get smaller.
- # apt-get clean removes downloaded .deb package files.
+ # Imagine you ordered pizza and kept all the delivery boxes — they take
+ # space but you do not need them anymore. That is what apt cache is.
+ # We delete it here inside the SAME RUN so Docker does not save those
+ # files in a layer. A separate RUN would be too late — the layer with
+ # the junk would already exist and the image would stay big.
+ # apt-get clean removes the downloaded package files.
  # rm -rf /var/lib/apt/lists/* removes the package index files.
  #
  # apt deja archivos de caché que ya no necesitamos después de instalar.
