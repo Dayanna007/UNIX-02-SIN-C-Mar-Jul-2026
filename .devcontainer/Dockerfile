@@ -48,7 +48,7 @@ FROM kalilinux/kali-rolling:latest
 # ----------------------------------------------------------------------------
 # MY EXPLANATION OF BLOCK 3:
 # ENV sets global settings that any program inside the container can read.
-# Think of them as sticky notes that the system always has available.
+# Think of them as global sticky notes that the system always has available.
 # (BHB Ch.1: the shell loads environment variables at the start of every session)
 #
 # DEBIAN_FRONTEND=noninteractive — tells apt "do not ask me questions,
