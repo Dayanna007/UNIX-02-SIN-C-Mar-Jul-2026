@@ -116,8 +116,9 @@ RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
 #   skip optional extras" — this keeps the image smaller.
 #
 # Why one big RUN instead of many small ones?
-#   Each RUN creates a new layer. More layers = bigger image. Combining
-#   everything in one RUN keeps the final image as small as possible.
+#   Each RUN creates a new layer. Combining related commands into a
+#   single RUN reduces unnecessary layers, improves build efficiency,
+#   and can help keep the final image smaller.
 #
 # && chains commands: the next one only runs if the previous one worked.
 #   If something fails the build stops with a clear error.
@@ -248,12 +249,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  # --- Limpieza final: reducir el tamaño de la imagen ---
  
 # MY EXPLANATION OF BLOCK G:
- # Imagine you ordered pizza and kept all the delivery boxes — they take
- # space but you do not need them anymore. That is what apt cache is.
- # We delete it here inside the SAME RUN so Docker does not save those
- # files in a layer. A separate RUN would be too late — the layer with
- # the junk would already exist and the image would stay big.
- # apt-get clean removes the downloaded package files.
+ # After all packages are installed, apt leaves temporary files that are
+ # no longer needed. We remove them inside this same RUN block because
+ # Docker creates a layer per RUN — if we cleaned in a separate RUN the
+ # cached files would still exist in the previous layer and the image
+ # would stay large.
+ # apt-get clean removes the downloaded .deb package files.
  # rm -rf /var/lib/apt/lists/* removes the package index files.
  #
  # apt deja archivos de caché que ya no necesitamos después de instalar.
@@ -340,10 +341,20 @@ RUN chsh -s /usr/bin/zsh root
 # input to the command — in this case cat >> appends it to .zshrc.
 # (BHB Ch.1 explains heredocs as a redirection operator using <<)
 #
-# .zshrc is the config file zsh reads every time a new terminal opens.
-# The PROMPT line sets a custom prompt that shows the student name,
-# current folder, and a green "ok" or red "bad" depending on whether
-# the last command succeeded or failed.
+# .zshrc is the configuration file that zsh reads every time a new
+# terminal session starts.
+#
+# The PROMPT line customizes how the command prompt looks.
+# It displays the student name, the current directory, and the result
+# of the previous command.
+#
+# The color codes (%F{cyan}, %F{yellow}, %F{green}, %F{red}) make the
+# prompt easier to read. The %(?.A.B) expression checks the exit status
+# of the previous command: it shows "ok" when the command succeeds and
+# "bad" when it fails.
+#
+# This helps users immediately see whether the last command completed
+# successfully without having to run additional checks.
 #
 # Prompt institucional para los y las estudiantes del curso
 RUN cat >> /root/.zshrc <<'EOF'
@@ -370,9 +381,9 @@ EOF
 #   RUN executes during the BUILD of the image (to install things).
 #   CMD executes when the container STARTS (to give you a shell).
 # /bin/bash opens an interactive terminal by default.
-# Codespaces overrides this with its own VS Code terminal, but it is
+# Codespaces overrides this with its own VS Code terminal, but it is.
 # good practice to always define CMD so the image works with plain Docker too.
-CMD ["/bin/bash"]
+CMD ["/usr/bin/zsh"]
 
 
 
