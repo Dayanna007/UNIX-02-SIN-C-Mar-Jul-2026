@@ -126,7 +126,7 @@ RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
 # Some important tools installed:
 #   gawk / sed / grep  — text processing tools covered in BHB Ch.2
 #   shellcheck         — checks bash scripts for errors automatically
-#   nmap               — famous network port scanner (BHB Ch.4)
+#   nmap               — famous network port scanner (BHB Ch.3)
 #   tcpdump / tshark   — capture and read network traffic
 #   tor / proxychains4 — route traffic anonymously through Tor network
 #   jq                 — parse and filter JSON from the command line
