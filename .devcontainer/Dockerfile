@@ -20,7 +20,7 @@
 # ----------------------------------------------------------------------------
 # MY EXPLANATION OF BLOCK 1 — Base image
 # ----------------------------------------------------------------------------
-# FROM is the first instruction in any Dockerfile. It tells Docker
+# FROM is the very first instruction in any Dockerfile. It tells Docker
 # "start from this existing image instead of building from zero".
 # We use Kali Linux because it is a Linux distribution made for security
 # and hacking practice — it already has many useful tools included.
