@@ -18,7 +18,7 @@
 
 
 # ----------------------------------------------------------------------------
-# MY EXPLANATION OF BLOCK 1 — Base image
+# MY EXPLANATION OF BLOCK A — Base image
 # ----------------------------------------------------------------------------
 # FROM is the very first instruction in any Dockerfile. It tells Docker
 # "start from this existing image instead of building from zero".
@@ -27,7 +27,7 @@
 # The word "rolling" means it is always being updated with new versions.
 # (BHB Ch.3 explains that Kali is the recommended OS for the hacking lab)
 # ============================================================================
-# MY EXPLANATION OF BLOCK 2 - Layers and cache
+# MY EXPLANATION OF BLOCK B - Layers and cache
 # ============================================================================
 # Each instruction in this file creates a new "layer" on top of the
 # previous one, like stacking pancakes.
@@ -46,7 +46,7 @@ FROM kalilinux/kali-rolling:latest
 # ----------------------------------------------------------------------------
 # ENV: variables de entorno permanentes dentro del contenedor
 # ----------------------------------------------------------------------------
-# MY EXPLANATION OF BLOCK 3:
+# MY EXPLANATION OF BLOCK C:
 # ENV sets global settings that any program inside the container can read.
 # Think of them as global sticky notes that the system always has available.
 # (BHB Ch.1: the shell loads environment variables at the start of every session)
@@ -86,7 +86,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # ----------------------------------------------------------------------------
 # Pre-respuesta a una pregunta interactiva de Wireshark
 # ----------------------------------------------------------------------------
-# MY EXPLANATION OF BLOCK 4:
+# MY EXPLANATION OF BLOCK D:
 # When Wireshark installs, it asks if non-root users can capture packets.
 # Since we are always root inside this container we do not need that.
 # If we do not answer in advance, the build will pause and wait forever.
@@ -104,7 +104,7 @@ RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
 # ----------------------------------------------------------------------------
 # RUN: ejecutar comandos durante la construcción de la imagen
 # ----------------------------------------------------------------------------
-# # MY EXPLANATION OF BLOCK 5
+# MY EXPLANATION OF BLOCK E:
 # This is the main installation block. Here is what each part does:
 #
 # apt-get update — refreshes the list of available packages from the
@@ -233,7 +233,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     httpie \
     \
  # --- Después de instalar, activamos el idioma español ---
- # MY EXPLANATION OF BLOCK F:
+# MY EXPLANATION OF BLOCK F:
  # sed finds the line "# es_ES.UTF-8" in the locale.gen file and removes
  # the # symbol to enable that language. Then locale-gen compiles the
  # locale files so the system can display Spanish characters correctly.
@@ -246,7 +246,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  && locale-gen \
  \
  # --- Limpieza final: reducir el tamaño de la imagen ---
- # MY EXPLANATION OF BLOCK 6:
+ 
+# MY EXPLANATION OF BLOCK G:
  # After installing, apt leaves cached files we no longer need.
  # We delete them here in the SAME RUN block on purpose — if we used a
  # separate RUN, Docker would save the cache in the previous layer anyway
@@ -264,7 +265,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # ----------------------------------------------------------------------------
 # SHELL: qué intérprete usar en los siguientes RUN
 # ----------------------------------------------------------------------------
-# MY EXPLANATION OF BLOCK 7:
+# MY EXPLANATION OF BLOCK H:
 # By default Docker runs RUN instructions using /bin/sh, which is a basic
 # and limited shell. We switch to /bin/bash so future RUN steps can use
 # modern bash features like arrays and [[ ]] conditions.
@@ -279,7 +280,7 @@ SHELL ["/bin/bash", "-c"]
 # ----------------------------------------------------------------------------
 # WORKDIR: directorio de trabajo al entrar al contenedor
 # ----------------------------------------------------------------------------
-# MY EXPLANATION OF BLOCK 8:
+# MY EXPLANATION OF BLOCK I:
 # WORKDIR sets the default folder you land in when you open a terminal
 # inside the container — like doing "cd /workspaces" automatically.
 # Codespaces always mounts the repository under /workspaces/ so this
@@ -290,7 +291,7 @@ SHELL ["/bin/bash", "-c"]
 # terminales se abran cerca de nuestros archivos del curso.
 WORKDIR /workspaces
 
-# MY EXPLANATION OF BLOCK 9:
+# MY EXPLANATION OF BLOCK J:
 # These lines configure Git for all users inside the container.
 # safe.directory '*' — trusts any repo folder even if the owner does not
 #   match the current user. Needed because Codespaces mounts files with
@@ -321,7 +322,7 @@ RUN git config --system --add safe.directory '*' \
 # propia terminal integrada de VS Code, pero es buena práctica dejarla
 # definida para que la imagen sea usable también con Docker puro.
 
-# MY EXPLANATION OF BLOCK 10:
+# MY EXPLANATION OF BLOCK K:
 # chsh -s changes the login shell for a user.
 # Here we change root's default shell from bash to zsh.
 # Zsh is a more modern shell with better autocomplete and a nicer prompt.
@@ -331,7 +332,7 @@ RUN git config --system --add safe.directory '*' \
 #para que chsh ya no haga falta y todo sea consistente.
 RUN chsh -s /usr/bin/zsh root
 
-# MY EXPLANATION OF BLOCK 11:
+# MY EXPLANATION OF BLOCK L:
 # A heredoc (here document) is a way to write multiple lines of text
 # directly inside a script without creating a separate file.
 # The syntax << 'EOF' ... EOF treats everything between the markers as
@@ -362,8 +363,7 @@ __set_prompt() {
 }
 PROMPT_COMMAND=__set_prompt
 EOF
-
-#MY EXPLANATION OF BLOCK 12
+# MY EXPLANATION OF BLOCK M:
 # CMD defines what runs automatically when the container starts.
 # The difference between CMD and RUN:
 #   RUN executes during the BUILD of the image (to install things).
