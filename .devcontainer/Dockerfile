@@ -91,7 +91,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # Since we are always root inside this container we do not need that.
 # If we do not answer in advance, the build will pause and wait forever.
 # debconf-set-selections lets us answer that question before it is asked,
-# so the installation runs without stopping.
+# so the installation runs without stopping — no human needed.
 #
 # Wireshark/tshark PREGUNTA durante su instalación si los usuarios
 # normales (no-root) deben poder capturar paquetes. Como en el contenedor
